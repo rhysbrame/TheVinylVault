@@ -12,7 +12,9 @@ class Record
   end
 
   def save
-    
+    sql = "INSERT INTO records (record_title, artist_id, genre_id) VALUES ('#{@record_title}','#{@artist_id}', '#{@genre_id}') RETURNING id"
+    results = SqlRunner.run(sql)
+    @id = results.first()['id'].to_i
   end
 
 end
