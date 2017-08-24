@@ -11,10 +11,20 @@ genre1 = Genre.new({
 })
 genre1.save()
 
+genre2 = Genre.new({
+  'genre_type' => 'Grunge'
+})
+genre2.save()
+
 artist1 = Artist.new({ 
   'artist_name' => 'Oasis'
 })
 artist1.save()
+
+artist2 = Artist.new({ 
+  'artist_name' => 'Nirvana'
+})
+artist2.save()
 
 record1 = Record.new({
   'record_title' => 'Definately Maybe',
@@ -29,3 +39,11 @@ record2 = Record.new({
   'genre_id' => genre1.id
 })
 record2.save()
+
+record3 = Record.new({
+  'record_title' => 'Bleach',
+  'artist_id' => artist2.id,
+  'genre_id' => genre2.id
+})
+record3.save()
+
