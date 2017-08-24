@@ -25,6 +25,12 @@ class Artist
     SqlRunner.run(sql)
   end
 
+  def records
+    sql = "SELECT * FROM records WHERE artist_id = #{id}"
+    record_hashes = SqlRunner.run(sql)
+    return record_hashes.map { |records| Record.new(records) }
+  end
+
   def self.all()
     sql = "SELECT * FROM artists"
     artists = SqlRunner.run(sql)
