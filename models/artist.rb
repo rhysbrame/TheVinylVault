@@ -32,7 +32,10 @@ class Artist
     return result
   end
 
-  def sefl.find()
-
-
+  def self.find(find_id)
+    sql = "SELECT * FROM artists WHERE id = #{find_id}"
+    artist = SqlRunner.run(sql).first
+    result = Artist.new(artist)
+    return result
+  end
 end
