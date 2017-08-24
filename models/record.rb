@@ -34,6 +34,12 @@ class Record
     return result
   end
 
+  def self.find(find_id)
+    sql = "SELECT * FROM records WHERE id = #{find_id}"
+    record = SqlRunner.run(sql).first
+    result = Record.new(record)
+    return result
+  end
 
 
 
