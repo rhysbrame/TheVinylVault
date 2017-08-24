@@ -30,7 +30,7 @@ class Record
   def self.all()
     sql = "SELECT * FROM records"
     records = SqlRunner.run(sql)
-    result = records.map { | record | Record.new(record)}
+    result = records.map { | record | Record.new(record) }
     return result
   end
 
@@ -40,18 +40,4 @@ class Record
     result = Record.new(record)
     return result
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
