@@ -25,5 +25,17 @@ class Genre
     SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM genres"
+    genres = SqlRunner.run(sql)
+    result = genres.map { |genre| Genre.new(genre) }
+    return result
+  end
 
+  def self.find(find_id)
+    sql = "SELECT * FROM genres WHERE id = #{find_id}"
+    genre = SqlRunner.run(sql).first
+    result = Genre.new(genre)
+    return result
+  end
 end
