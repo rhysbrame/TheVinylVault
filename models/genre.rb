@@ -34,6 +34,17 @@ class Genre
     return results.map{ |record_by_genre| Record.new(record_by_genre) }
   end
 
+  def artists
+    sql = "SELECT * FROM genres g 
+    INNER JOIN records r
+    ON r.genre_id = g.id
+    INNER JOIN artists a
+    ON r.artist_id = a.id
+    WHERE g.id = #{@id}"
+    results = SqlRunner.run(sql)
+    return results.map { |artist_by_genre| Record.new(artist_by_genre) }
+  end
+
   def self.all()
     sql = "SELECT * FROM genres"
     genres = SqlRunner.run(sql)
