@@ -27,9 +27,16 @@ class Record
     SqlRunner.run(sql)
   end
 
-  def artist_name
+  def artist
     sql = "SELECT * FROM artists WHERE id = #{@id}"
-    SqlRunner.run(sql)
+    artist_hash = SqlRunner.run(sql).first
+    return Artist.new(artist_hash)
+  end
+
+  def genre
+    sql = "SELECT * FROM genres WHERE id = #{@id}"
+    genre_hash = SqlRunner.run(sql).first
+    return Genre.new(genre_hash)
   end
 
   def self.all()
