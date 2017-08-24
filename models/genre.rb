@@ -25,11 +25,20 @@ class Genre
     SqlRunner.run(sql)
   end
 
+  def records
+    sql = "SELECT * FROM genres g
+      INNER JOIN records r
+      ON r.genre_id = g.id
+      WHERE g.id = #{@id}"
+    results = SqlRunner.run(sql)
+    return results.map{ |record_by_genre| Record.new(record_by_genre) }
+  end
+
   def self.all()
     sql = "SELECT * FROM genres"
     genres = SqlRunner.run(sql)
-    result = genres.map { |genre| Genre.new(genre) }
-    return result
+    results = genres.map { |genre| Genre.new(genre) }
+    return results
   end
 
   def self.find(find_id)
