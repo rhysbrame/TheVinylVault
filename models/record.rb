@@ -40,4 +40,10 @@ class Record
     result = Record.new(record)
     return result
   end
+
+  def self.delete_all
+    sql = "DELETE FROM records"
+    result = SqlRunner.run(sql)
+    return result
+  end
 end
