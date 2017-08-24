@@ -9,4 +9,10 @@ class Artist
     @artist_name = artist_hash['artist_name']
   end
 
+  def save
+    sql = "INSERT INTO records ( artist_name ) VALUES ('#{@artist_name}') RETURNING id"
+    results = SqlRunner.run(sql)
+    @id = results.first()['id'].to_i
+  end
+
 end
