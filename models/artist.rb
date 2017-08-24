@@ -10,9 +10,19 @@ class Artist
   end
 
   def save
-    sql = "INSERT INTO records ( artist_name ) VALUES ('#{@artist_name}') RETURNING id"
+    sql = "INSERT INTO artists ( artist_name ) VALUES ('#{@artist_name}') RETURNING id"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
+  end
+
+  def delete
+    sql = "DELETE FROM artists WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
+  def update
+    sql = "UPDATE artists SET (artist_name) = ('#{@artist_name}') WHERE id = #{@id}"
+    SqlRunner.run(sql)
   end
 
 end
