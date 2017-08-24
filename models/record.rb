@@ -17,4 +17,9 @@ class Record
     @id = results.first()['id'].to_i
   end
 
+  def delete
+    sql = "DELETE FROM records WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end  
+
 end
