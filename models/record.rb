@@ -27,6 +27,12 @@ class Record
     SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM records"
+    records = SqlRunner.run(sql)
+    result = records.map { | record | Record.new(record)}
+    return result
+  end
 
 
 
