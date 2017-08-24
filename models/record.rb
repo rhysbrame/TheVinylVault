@@ -20,6 +20,26 @@ class Record
   def delete
     sql = "DELETE FROM records WHERE id = #{@id}"
     SqlRunner.run(sql)
-  end  
+  end
+
+  def update
+    sql = "UPDATE records SET (record_title, artist_id, genre_id) = ('#{@record_title}','#{@artist_id}', '#{@genre_id}') WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 end
