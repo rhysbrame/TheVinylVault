@@ -3,6 +3,18 @@
   <label for= "record-title">Record Title:</label>
   <input id= "record-title" type= "text" name= "record_title" required/>
 
+  <select name='artist_id'>
+    <% for artist in @artists %>
+    <option value='<%= artist.id %>'><%= artist.artist_name %>
+    <% end %>    
+  </select>
+
+  <select name="genre_id">
+    <% for genre in @genres %>
+    <option value="<%= genre.id %>"><%= genre.genre_type %>
+    <% end %>
+  </select>
+
   <input type="submit" value="Add Record">
 
 </form>

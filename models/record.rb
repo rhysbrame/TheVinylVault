@@ -27,6 +27,11 @@ class Record
     SqlRunner.run(sql)
   end
 
+  def artist_name
+    sql = "SELECT * FROM artists WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
   def self.all()
     sql = "SELECT * FROM records"
     records = SqlRunner.run(sql)

@@ -10,6 +10,8 @@ get '/records' do
 end
 
 get '/records/new' do
+  @artists = Artist.all()
+  @genres = Genre.all()
   erb(:'records/new')
 end
 
