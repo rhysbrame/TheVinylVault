@@ -40,7 +40,7 @@ class Record
   end
 
   def self.all()
-    sql = "SELECT * FROM records"
+    sql = "SELECT * FROM records ORDER BY record_title ASC"
     records = SqlRunner.run(sql)
     result = records.map { | record | Record.new(record) }
     return result
