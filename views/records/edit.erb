@@ -1,0 +1,20 @@
+<form action="/records/<%= @record.id %>" method="post">
+
+  <label for= "record-title">Record Title:</label>
+  <input id= "record-title" type= "text" name= "record_title" value= "<%= @record.record_title %>"/>
+
+  <select name='artist_id'>
+    <% @artists.each do |artist| %>
+    <option value="<%= artist.id %>" <%= "selected" if @record.artist_id == artist.id %>> <%= artist.artist_name %>
+    <% end %>
+  </select>
+
+  <select name="genre_id">
+    <% for genre in @genres %>
+    <option value="<%= genre.id %>" <%= "selected" if @record.genre_id == genre.id  %>> <%= genre.genre_type %>
+    <% end %>
+  </select>
+
+  <input type="submit" value="edit">
+
+</form>

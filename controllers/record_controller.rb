@@ -27,6 +27,8 @@ get '/records/:id' do
 end
 
 get '/records/:id/edit' do
+  @artists = Artist.all
+  @genres = Genre.all
   @record = Record.find(params[:id])
   erb ( :'records/edit' )
 end
