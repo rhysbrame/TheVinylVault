@@ -40,7 +40,10 @@ class Record
   end
 
   def self.all()
-    sql = "SELECT * FROM records ORDER BY record_title ASC"
+    sql = "SELECT * FROM records r
+        INNER JOIN artists a
+        ON r.artist_id = a.id
+        ORDER BY artist_name, record_title ASC"
     records = SqlRunner.run(sql)
     result = records.map { | record | Record.new(record) }
     return result

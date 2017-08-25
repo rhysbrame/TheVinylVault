@@ -1,8 +1,8 @@
 <a href="/records/new">new record//</a>
 
 <% @records.each do |record| %>
-<p>Record: <%= record.record_title %> </p>
 <p>artist: <%= record.artist.artist_name %> </p>
-<p>genre id: <%= record.genre.genre_type %> </p>
+<p>record: <%= record.record_title %> </p>
+<p>genre: <%= record.genre.genre_type %> </p>
 <br>
 <% end %>
