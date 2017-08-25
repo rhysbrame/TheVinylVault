@@ -5,7 +5,7 @@ class Genre
   attr_reader :id, :genre_type
 
   def initialize( genre_hash )
-    @id = genre_hash['id'].to_i
+    @id = nil || genre_hash['id'].to_i
     @genre_type = genre_hash['genre_type']
   end
 
