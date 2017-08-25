@@ -26,7 +26,11 @@ class Artist
   end
 
   def records
-    sql = "SELECT * FROM records WHERE artist_id = #{id}"
+    sql = "SELECT * FROM artists a
+    INNER JOIN records r
+    ON r.artist_id = a.id
+    WHERE artist_id = #{id}
+    ORDER BY artist_name ASC"
     record_hashes = SqlRunner.run(sql)
     return record_hashes.map { |records| Record.new(records) }
   end

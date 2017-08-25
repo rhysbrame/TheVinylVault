@@ -1,1 +1,4 @@
-<p>Type: <%= @artist.artist_name %></p>
+<p><%= @artist.artist_name %></p>
+<% @artist.records.each do |record| %>
+<p><%= record.record_title %></p>
+<% end %>
